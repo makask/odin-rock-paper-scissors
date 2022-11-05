@@ -1,20 +1,20 @@
 * {
-    margin: 2px;
+    
     box-sizing: border-box;
 }
 
 body{
     height:100vh;
-    background: #34e7e4;
+    background: #161d1d;
     font-family: sans-serif;
     display: flex;
     flex-direction: column;
-    
+    color: white;
     font-size: 24px;
 }
 
 header{
-    background: #3c40c6;
+    background: #161d1d;;
     padding: 2em 0 2em 0;
     text-align: center;
 }
@@ -25,13 +25,13 @@ header{
 }
 
 .left{
-    background: #3c40c6;
+    background: #161d1d;;
     padding: 3em 0 3em 0;
     flex: 1 1 100px;
 }
 
 main {
-    background: #9697cc;
+    background: #161d1d;;
     padding: 1em 0 1em 0;
     flex: 8 8 150px;
     display: flex;
@@ -39,13 +39,13 @@ main {
 }
 
 .right{
-    background: #3c40c6;
+    background: #161d1d;;
     padding: 3em 0 3em 0;
     flex: 1 1 100px;
 }
 
 footer{
-    background: #3c40c6;
+    background: #161d1d;;
     padding: 1em 0 1em 0;
     text-align: center;
 }
@@ -55,7 +55,7 @@ footer{
     display: flex;
     justify-content: space-between;
     text-align: center;
-    background: red;
+    background: #161d1d;;
     flex: 2 2 100px;
     padding: 0 10em 0 10em;
     align-items: center;   
@@ -70,7 +70,7 @@ img{
 .main-second-section{
     display: flex;
     justify-content: space-between;
-    background: rgb(93, 86, 194);
+    background: #161d1d;;
     flex: 2 2 100px;
     padding: 0 8em 0 8em;
     align-items: center;  
@@ -79,8 +79,24 @@ img{
 .main-third-section{
     display: flex;
     justify-content: space-evenly;
-    background: rgb(128, 179, 115);
+    background: #161d1d;
     flex: 2 2 100px;
+}
+
+.game-choice:hover{
+    opacity: 0.2;
+}
+
+.game-choice{
+    transition: all .1s ease;
+}
+
+.on-click{
+    border: 3px solid #dadada;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    transform: scale(1.1);
 }
 
 @media all and (max-width: 550px){

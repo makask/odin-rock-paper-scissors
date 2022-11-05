@@ -1,6 +1,7 @@
 const choices = ["Rock","Paper","Scissors"];
 let playerScore = 0;
 let computerScore = 0;
+const maxRounds = 3;
 
 
 
@@ -8,35 +9,46 @@ const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
 
+document.querySelector(".round-description").innerHTML = `First to score ${maxRounds} points wins the game`; 
+
 rock.addEventListener("click",()=>{
     let playerSelection = "Rock";
-    document.querySelector(".player-round-choice").src="./images/rock.png";
+    document.querySelector(".player-round-choice").src="./images/rock.gif";
+    rock.classList.add("on-click");
+    setTimeout(function(){
+        rock.classList.remove("on-click");
+    },100);
     game(playerSelection);
 });
 
 paper.addEventListener("click",()=>{
     let playerSelection = "Paper";
-    document.querySelector(".player-round-choice").src="./images/paper.png";
+    document.querySelector(".player-round-choice").src="./images/paper.gif";
+    paper.classList.add("on-click");
+    setTimeout(function(){
+        paper.classList.remove("on-click");
+    },100);
     game(playerSelection);
 });
 
 scissors.addEventListener("click", ()=>{
     let playerSelection = "Scissors";
-    document.querySelector(".player-round-choice").src="./images/scissors.png";
+    document.querySelector(".player-round-choice").src="./images/scissors.gif";
+    scissors.classList.add("on-click");
+    setTimeout(function(){
+        scissors.classList.remove("on-click");
+    },100);
     game(playerSelection);
 });
 
 function game(playerSelection){
     
-    //for(let i = 0; i < 5; i++){
         playerSelection = capitalizeFirstLetter(playerSelection);
         computerSelection = getComputersChoice();
-        document.querySelector(".round-description").innerHTML = playRound(playerSelection,computerSelection);
-        //}
-        
-        if(playerScore === 2 || computerScore ===2){
+        document.querySelector(".round-description").innerHTML = playRound(playerSelection,computerSelection); 
+        if(playerScore === maxRounds || computerScore === maxRounds){
         let gameResult = (playerScore > computerScore) ? "You won!" : (computerScore > playerScore) ? "You lost!" : "Its a tie";
-        //alert(gameResult);
+        
         setTimeout(function(){
             resetGame();
             window.location.reload();
@@ -48,11 +60,11 @@ function game(playerSelection){
 function getComputersChoice(){
     let computersChoice = Math.floor(Math.random() * 3);
     if(computersChoice===0){
-        document.querySelector(".computer-round-choice").src="./images/rock.png";
+        document.querySelector(".computer-round-choice").src="./images/rock.gif";
     }else if(computersChoice===1){
-        document.querySelector(".computer-round-choice").src="./images/paper.png";
+        document.querySelector(".computer-round-choice").src="./images/paper.gif";
     }else{
-        document.querySelector(".computer-round-choice").src="./images/scissors.png";
+        document.querySelector(".computer-round-choice").src="./images/scissors.gif";
     }
     return choices[computersChoice];
 }
@@ -96,14 +108,11 @@ function resetGame(){
     computerScore = 0;
     round = 0;
     document.querySelector(".round-result").innerHTML = "PICK YOUR WEAPON";
-    document.querySelector(".round-description").innerHTML = "First to score 5 points wins the game";
+    document.querySelector(".round-description").innerHTML = `First to score ${maxRounds} points wins the game`;
     document.querySelector(".player-round-choice").src = "./images/test.png";
     document.querySelector(".computer-round-choice").src = "./images/test.png";
 }
 
-//<h2 class="round-result">PICK YOUR WEAPON!</h2>
-//<h3 class="round-description">First to score 5 points wins the game</h3>
-//</div>
 
 
 
