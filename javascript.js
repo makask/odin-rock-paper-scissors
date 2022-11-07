@@ -3,8 +3,6 @@ let playerScore = 0;
 let computerScore = 0;
 const maxRounds = 3;
 
-
-
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
@@ -47,14 +45,14 @@ function game(playerSelection){
         computerSelection = getComputersChoice();
         document.querySelector(".round-description").innerHTML = playRound(playerSelection,computerSelection); 
         if(playerScore === maxRounds || computerScore === maxRounds){
-        let gameResult = (playerScore > computerScore) ? "You won!" : (computerScore > playerScore) ? "You lost!" : "Its a tie";
-        
-        setTimeout(function(){
-            resetGame();
-            window.location.reload();
-            alert(gameResult + "\n PLAY AGAIN?");
-        }, 1000);
-    }  
+            let gameResult = (playerScore > computerScore) ? "You won!" : (computerScore > playerScore) ? "You lost!" : "Its a tie";
+
+            showAlert(`${gameResult}`);
+            
+            setTimeout(function(){
+                resetGame();
+            }, 1000);          
+        }  
 }
 
 function getComputersChoice(){
@@ -83,12 +81,12 @@ function playRound(playerSelection, computerSelection){
         playerScore++;
         updateScore();
         document.querySelector(".round-result").innerHTML = `You won!`;
-        return `You won! ${playerSelection} beats ${computerSelection}`;
+        return `${playerSelection} beats ${computerSelection}`;
     }else{
         computerScore++;
         updateScore();
         document.querySelector(".round-result").innerHTML = `You lost!`;
-        return `You lost! ${computerSelection} beats ${playerSelection}`; 
+        return `${computerSelection} beats ${playerSelection}`; 
     }
        
 }
@@ -107,11 +105,53 @@ function resetGame(){
     playerScore = 0;
     computerScore = 0;
     round = 0;
-    document.querySelector(".round-result").innerHTML = "PICK YOUR WEAPON";
+    document.querySelector(".round-result").innerHTML = "CHOOSE YOUR WEAPON";
     document.querySelector(".round-description").innerHTML = `First to score ${maxRounds} points wins the game`;
-    document.querySelector(".player-round-choice").src = "./images/test.png";
-    document.querySelector(".computer-round-choice").src = "./images/test.png";
+    document.querySelector(".player-round-choice").src = "./images/questionmark.gif";
+    document.querySelector(".computer-round-choice").src = "./images/questionmark.gif";
 }
+
+document.querySelector(".rock").addEventListener('mouseover', function(){
+    this.src="./images/rock.gif";
+});
+
+document.querySelector(".rock").addEventListener('mouseout', function(){
+    this.src="./images/rock.png";
+});
+
+document.querySelector(".paper").addEventListener('mouseover', function(){
+    this.src="./images/paper.gif";
+});
+
+document.querySelector(".paper").addEventListener('mouseout', function(){
+    this.src="./images/paper.png";
+});
+
+document.querySelector(".scissors").addEventListener('mouseover', function(){
+    this.src="./images/scissors.gif";
+});
+
+document.querySelector(".scissors").addEventListener('mouseout', function(){
+    this.src="./images/scissors.png";
+});
+
+function showAlert(msg, ok) {
+    var confirmBox= $("#confirm");
+    confirmBox.find(".message").text(msg);
+    confirmBox.find(".ok").unbind().click(function() {
+       confirmBox.hide();
+       window.location.reload();
+    });
+    confirmBox.find(".ok").click(ok);
+    confirmBox.show();
+ }
+
+
+
+
+
+
+
 
 
 
