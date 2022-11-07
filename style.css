@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'righteous-regular';
+    src: url("./fonts/Righteous-Regular.ttf");
+}
+
 * {
    
     box-sizing: border-box;
@@ -6,7 +11,17 @@
 body{
     height:100vh;
     background: #403b46;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: -webkit-linear-gradient(
+        to right,
+        #26d0ce,
+        #1a2980
+    );
+    background: linear-gradient(
+        to right,
+        #344140,
+        #4c548a
+    );
+    font-family: "righteous-regular", sans-serif;
     display: flex;
     flex-direction: column;
     color: rgb(206, 206, 124);
@@ -16,6 +31,11 @@ body{
 
 header{
     background: #161d1d;
+    background: linear-gradient(
+        to right,
+        #0e0f0f,
+        #2a2c36
+    );
     
     text-align: center;
     margin-top: 1rem;
@@ -59,6 +79,11 @@ main {
 
 footer{
     background: #161d1d;
+    background: linear-gradient(
+        to right,
+        #0e0f0f,
+        #2a2c36
+    );
     padding: 1em 0 1em 0;
     text-align: center;
     margin-top: 1rem;
@@ -112,8 +137,8 @@ img{
 .on-click{
     border: 3px solid #dadada;
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
     transform: scale(1.1);
 }
 
@@ -122,20 +147,35 @@ img{
 }
 
 #confirm {
+    background: linear-gradient(
+        to right,
+        #0e0f0f,
+        #2a2c36
+    );
+    display: flex;
     display: none;
     background-color: #161d1d;
     border: 1px solid;
-    position: fixed;
-    width: 300px;
-    left: 50%;
-    margin-left: -100px;
+    position: absolute;
+    width: 1000px;
+    height: 300px;
+    margin-left: 70px;
     padding: 25px;
     text-align: center;
     border-radius: 25px;
+    z-index: 20;
+    top: 20%;
+    left: 20%;
+    right: 20%;
+    bottom: 50%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 370px;
+    padding-top: 50px;
  }
  
  .ok{
-    width: 120px;
+    width: 200px;
     height: 50px;
     font-size: 20px;
     background-color: #222c2c;
